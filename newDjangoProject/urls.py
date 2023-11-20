@@ -18,9 +18,12 @@ from django.contrib import admin
 from django.urls import path
 
 from myapp import views
+from myapp.views import basket, sorted_basket
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
     path('about/', views.about, name='about'),
+    path('user/<int:user_id>/', basket, name='basket'),
+    path('user_sorted/<int:user_id>/<int:days_ago>/', sorted_basket, name='sorted_basket'),
 ]

@@ -1,12 +1,103 @@
-INFO 2023-11-20 14:02:41,338 views 17340 18392 Home page is visited. Time of visit: 2023-11-20 14:02:41.338623
-INFO 2023-11-20 14:02:41,346 basehttp 17340 18392 "GET / HTTP/1.1" 200 3320
-INFO 2023-11-20 14:02:43,678 views 17340 10472 Home page is visited. Time of visit: 2023-11-20 14:02:43.678001
-INFO 2023-11-20 14:02:43,679 basehttp 17340 10472 "GET / HTTP/1.1" 200 3320
-INFO 2023-11-20 14:02:44,090 views 17340 10472 'About' page is visited. Time of visit: 2023-11-20 14:02:44.090502
-INFO 2023-11-20 14:02:44,092 basehttp 17340 10472 "GET /about/ HTTP/1.1" 200 3387
-INFO 2023-11-20 14:02:44,428 views 17340 10472 Home page is visited. Time of visit: 2023-11-20 14:02:44.428294
-INFO 2023-11-20 14:02:44,429 basehttp 17340 10472 "GET / HTTP/1.1" 200 3320
-INFO 2023-11-20 14:02:44,752 views 17340 10472 'About' page is visited. Time of visit: 2023-11-20 14:02:44.752454
-INFO 2023-11-20 14:02:44,753 basehttp 17340 10472 "GET /about/ HTTP/1.1" 200 3387
-INFO 2023-11-20 14:02:45,075 views 17340 10472 Home page is visited. Time of visit: 2023-11-20 14:02:45.075864
-INFO 2023-11-20 14:02:45,076 basehttp 17340 10472 "GET / HTTP/1.1" 200 3320
+INFO 2023-11-20 23:10:48,475 views 7996 14952 Home page is visited. Time of visit: 2023-11-20 23:10:48.475213
+INFO 2023-11-20 23:10:48,497 basehttp 7996 14952 "GET / HTTP/1.1" 200 3604
+INFO 2023-11-20 23:10:56,693 basehttp 7996 15204 "GET /user/1/ HTTP/1.1" 200 4891
+INFO 2023-11-20 23:11:20,523 basehttp 7996 7388 "GET /user/3/ HTTP/1.1" 200 6082
+INFO 2023-11-20 23:12:19,910 basehttp 7996 10760 "GET /user/4/ HTTP/1.1" 200 4728
+INFO 2023-11-20 23:12:37,161 basehttp 7996 9844 "GET /user/5/ HTTP/1.1" 200 3541
+ERROR 2023-11-20 23:12:42,431 log 7996 3212 Internal Server Error: /user_sorted/1/7/
+Traceback (most recent call last):
+  File "C:\Users\arsen\PycharmProjects\newDjangoProject\venv\Lib\site-packages\django\template\base.py", line 880, in _resolve_lookup
+    current = current[bit]
+              ~~~~~~~^^^^^
+TypeError: 'ImageFieldFile' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\arsen\PycharmProjects\newDjangoProject\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arsen\PycharmProjects\newDjangoProject\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arsen\PycharmProjects\newDjangoProject\myapp\views.py", line 50, in sorted_basket
+    return render(request, 'myapp/user_all_products.html', {'user': user, 'products': products, 'days': days_ago})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arsen\PycharmProjects\newDjangoProject\venv\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arsen\PycharmProjects\newDjangoProject\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arsen\PycharmProjects\newDjangoProject\venv\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arsen\PycharmProjects\newDjangoProject\venv\Lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arsen\PycharmProjects\newDjangoProject\venv\Lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arsen\PycharmProjects\newDjangoProject\venv\Lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arsen\PycharmProjects\newDjangoProject\venv\Lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arsen\PycharmProjects\newDjangoProject\venv\Lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arsen\PycharmProjects\newDjangoProject\venv\Lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arsen\PycharmProjects\newDjangoProject\venv\Lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arsen\PycharmProjects\newDjangoProject\venv\Lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arsen\PycharmProjects\newDjangoProject\venv\Lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arsen\PycharmProjects\newDjangoProject\venv\Lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arsen\PycharmProjects\newDjangoProject\venv\Lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arsen\PycharmProjects\newDjangoProject\venv\Lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arsen\PycharmProjects\newDjangoProject\venv\Lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arsen\PycharmProjects\newDjangoProject\venv\Lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arsen\PycharmProjects\newDjangoProject\venv\Lib\site-packages\django\template\defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arsen\PycharmProjects\newDjangoProject\venv\Lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arsen\PycharmProjects\newDjangoProject\venv\Lib\site-packages\django\template\base.py", line 1064, in render
+    output = self.filter_expression.resolve(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arsen\PycharmProjects\newDjangoProject\venv\Lib\site-packages\django\template\base.py", line 715, in resolve
+    obj = self.var.resolve(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arsen\PycharmProjects\newDjangoProject\venv\Lib\site-packages\django\template\base.py", line 847, in resolve
+    value = self._resolve_lookup(context)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arsen\PycharmProjects\newDjangoProject\venv\Lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arsen\PycharmProjects\newDjangoProject\venv\Lib\site-packages\django\db\models\fields\files.py", line 66, in url
+    self._require_file()
+  File "C:\Users\arsen\PycharmProjects\newDjangoProject\venv\Lib\site-packages\django\db\models\fields\files.py", line 41, in _require_file
+    raise ValueError(
+ValueError: The 'image' attribute has no file associated with it.
+ERROR 2023-11-20 23:12:42,451 basehttp 7996 3212 "GET /user_sorted/1/7/ HTTP/1.1" 500 202840
+WARNING 2023-11-20 23:12:52,266 log 7996 22664 Not Found: /user_sorted/1/
+WARNING 2023-11-20 23:12:52,267 basehttp 7996 22664 "GET /user_sorted/1/ HTTP/1.1" 404 2677
+INFO 2023-11-20 23:13:08,700 basehttp 7996 12624 "GET /user/3/ HTTP/1.1" 200 6082

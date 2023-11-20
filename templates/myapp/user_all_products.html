@@ -1,0 +1,24 @@
+{% extends 'myapp/layout.html' %}
+{% load static %}
+
+{% block title %}{{ user.name }}'s Products for the last  {{ days }} days {% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h2>Все продукты пользователя: {{ user.name }} за последние {{ days }} дней</h2>
+        <div class="row mt-3">
+            {% for product in products %}
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.name }}</h5>
+                            <p class="card-text">{{ product.description }}</p>
+                            <p class="card-text"><strong>Price:</strong> ${{ product.price }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

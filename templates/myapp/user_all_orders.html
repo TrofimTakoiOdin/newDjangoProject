@@ -1,0 +1,27 @@
+{% extends 'myapp/layout.html' %}
+{% load static %}
+
+{% block title %}{{ user.name }}'s Orders{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h2>Все заказы пользователя: {{ user.name }}</h2>
+        {% for order in orders %}
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h5>Order Date: {{ order.date_ordered }}</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>Total Price:</strong> ${{ order.total_price }}</p>
+                    <h3>Products</h3>
+                    {% for product in order.products.all %}
+                        <div class="mb-2">
+                            <p>{{ product.name }}</p>
+                            <p><strong>Price:</strong> ${{ product.price }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
