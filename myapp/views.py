@@ -1,8 +1,11 @@
 import logging
 from datetime import datetime, timedelta
-from django.shortcuts import render
+from django.contrib import messages
+from django.core.files.storage import FileSystemStorage
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 
+from myapp.forms import ProductFormWidget
 from myapp.models import User, Order, Product
 
 logger = logging.getLogger(__name__)
@@ -48,3 +51,41 @@ def sorted_basket(request, user_id, days_ago):
     products = Product.objects.filter(order__customer=user, order__date_ordered__range=(before, now)).distinct()
 
     return render(request, 'myapp/user_all_products.html', {'user': user, 'products': products, 'days': days_ago})
+
+
+def product_update_view(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+
+    if request.method == 'POST':
+        form = ProductFormWidget(request.POST, request.FILES)
+        if form.is_valid():
+            # Handle form data
+            name = form.cleaned_data.get('name')
+            price = form.cleaned_data.get('price')
+            description = form.cleaned_data.get('description')
+            number = form.cleaned_data.get('number')
+
+            # Handle image upload
+            image = request.FILES['image']
+            fs = FileSystemStorage()
+            fs.save(image.name, image)
+
+            # Update product details
+            product.name = name
+            product.price = price
+            product.description = description
+            product.quantity = number
+            product.image = image.name
+            product.save()
+            messages.success(request, 'Product updated successfully!')
+
+    else:
+        # Populate form with existing data
+        form = ProductFormWidget(initial={
+            'name': product.name,
+            'price': product.price,
+            'description': product.description,
+            'number': product.quantity,
+        })
+
+    return render(request, 'product_update.html', {'form': form, 'product': product})

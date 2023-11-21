@@ -19,7 +19,7 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=8, decimal_places=2)
     description = models.TextField()
     quantity = models.IntegerField()
-    image = models.ImageField(upload_to='images')
+    photo = models.ImageField(upload_to='media/', blank=True, null=True)
 
     # product_image поле не обязательное !
 
