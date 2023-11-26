@@ -85,8 +85,8 @@ WSGI_APPLICATION = 'newDjangoProject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': '<djangoGeekBrains$second_attempt>',
-        'USER': '<djangoGeekBrains>',
+        'NAME': 'djangoGeekBrains$second_attempt',
+        'USER': 'djangoGeekBrains',
         'PASSWORD': os.getenv('DjangoStudyDB'),
         'HOST': 'djangoGeekBrainsStudy.mysql.pythonanywhere-services.com',
         'OPTIONS': {
@@ -95,7 +95,6 @@ DATABASES = {
         },
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
